@@ -96,6 +96,7 @@ namespace GameOfWar
                     deck.RemoveRange(0, 2);
                     firstPDeck.Enqueue(firstTwoDrawnCards[0]);
                     secondPDeck.Enqueue(firstTwoDrawnCards[1]);
+
                 }
             }
             bool GameHasWinner()
@@ -113,13 +114,7 @@ namespace GameOfWar
                 return false;
             }
 
-            //void DrawPlayersCards()
-            //{
-            //    firstPCard = firstPDeck.Dequeue();
-            //    Console.WriteLine($"First player has drawn: {firstPCard}");
-            //    secondPCard = secondPDeck.Dequeue();
-            //    Console.WriteLine($"Second player has drwan: {secondPCard}");
-            //}
+      
 
             void DrawPlayersCards()
             {
