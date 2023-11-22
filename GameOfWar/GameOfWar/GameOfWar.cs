@@ -36,8 +36,8 @@ namespace GameOfWar
             Queue<Card> firstPDeck = new Queue<Card>();
             Queue<Card> secondPDeck = new Queue<Card>();
             DealCardsToPlayers();
-            Card firstPCard;
-            Card secondPCard;
+            Card firstPCard = new Card();
+            Card secondPCard = new Card();
             int totalMoves = 0;
             while (!GameHasWinner())
             {
@@ -111,17 +111,42 @@ namespace GameOfWar
                     return true;
                 }
                 return false;
-
-
-
             }
+
+            //void DrawPlayersCards()
+            //{
+            //    firstPCard = firstPDeck.Dequeue();
+            //    Console.WriteLine($"First player has drawn: {firstPCard}");
+            //    secondPCard = secondPDeck.Dequeue();
+            //    Console.WriteLine($"Second player has drwan: {secondPCard}");
+            //}
+
             void DrawPlayersCards()
             {
-                firstPCard = firstPDeck.Dequeue();
-                Console.WriteLine($"First player has drawn: {firstPCard}");
-                secondPCard = secondPDeck.Dequeue();
-                Console.WriteLine($"Second player has drwan: {secondPCard}");
+                if (firstPDeck.Any())
+                {
+                    firstPCard = firstPDeck.Dequeue();
+                    Console.WriteLine($"First player has drawn: {firstPCard}");
+                }
+                else
+                {
+                    Console.WriteLine($"First player does not have any cards left.");
+                    return;
+                }
+
+                if (secondPDeck.Any())
+                {
+                    secondPCard = secondPDeck.Dequeue();
+                    Console.WriteLine($"Second player has drawn: {secondPCard}");
+                }
+                else
+                {
+                    Console.WriteLine($"Second player does not have any cards left.");
+                    return;
+                }
             }
+
+
             void ProcessWar(Queue<Card> pool)
             {
                 while((int)firstPCard.Face == (int) secondPCard.Face) 
