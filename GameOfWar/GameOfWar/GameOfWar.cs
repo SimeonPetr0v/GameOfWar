@@ -131,12 +131,13 @@ namespace GameOfWar
                     {
                         AddCardsToWinnerDeck(firstPDeck, secondPDeck);
                         Console.WriteLine($"First player does not have enough cards to continue playing...");
-                        break;
+                        return;
                     }
                     if(secondPDeck.Count < 4)
                     {
                         AddCardsToWinnerDeck(secondPDeck, firstPDeck);
                         Console.WriteLine($"Second player does not have enough cards to continue playing...");
+                        return;
                     }
                     AddWarCardsToPool(pool);
 
